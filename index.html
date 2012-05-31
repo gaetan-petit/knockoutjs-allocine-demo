@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="Stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- Search form -->
+    <div>
+      <form name="search" data-bind="submit: submitSearchForm">
+        <input type="text" data-bind="value: chosenMovie" />
+      </form>
+    </div>
+
+    <!-- Movie grid -->
+    <table class="movies" data-bind="with: chosenMovieListData">
+      <thead><tr><th>Titre</th><th>Année</th><th>Sortie</th></tr></thead>
+      <!-- ko if:$data.movie -->
+      <tbody data-bind="foreach: movie">
+        <tr data-bind="click: $root.goToMovie">
+          <!-- ko if:$data.title -->
+          <td data-bind="text: title"></td>
+          <!-- /ko -->
+          <!-- ko ifnot:$data.title -->
+          <td data-bind="text: originalTitle"></td>
+          <!-- /ko -->
+          <td data-bind="if: $data.productionYear, text: $data.productionYear"></td>
+          <!-- ko if:$data.release -->
+          <td data-bind="if: $data.release.releaseDate, text: $data.release.releaseDate"></td>
+          <!-- /ko -->
+        </tr>
+      </tbody>
+      <!-- /ko -->
+    </table>
+
+    <!-- Chosen movie -->
+    <div class="viewMovie" data-bind="with: chosenMovieData">
+      <div class="movieInfo">
+        <h1 data-bind="text: title"></h1>
+        <p><span data-bind="text: productionYear"></span></p>
+        <!-- ko if:$data.poster -->
+        <img src="" data-bind="attr: {src: poster.href}" />
+        <!-- /ko -->
+        <p><label>Genre:</label> <span data-bind="text: genre[0].$"></span></p>
+        <!-- ko if:$data.synopsis -->
+        <p><label>Synopsis</label>: <span data-bind="text: synopsis"></span></p>
+        <!-- /ko -->
+      </div>
+    </div>
+
+    <!-- Inclusion javascript -->
+    <div>
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+      <script type="text/javascript" src="lib/knockout.js"></script>
+      <script type="text/javascript" src="project.js"></script>
+    </div>
+  </body>
+</html>

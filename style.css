@@ -1,0 +1,18 @@
+body { font-family: Helvetica, Arial}
+
+.movies { width: 100%; table-layout:fixed; border-spacing: 0; }
+.movies thead { background-color: #bbb; font-weight: bold; color: #444; text-shadow: #f7f7f7 0 1px 1px; }
+.movies tbody tr:hover { cursor: pointer; background-color: #68c !important; color: White; }
+.movies th, .movies td { text-align:left; padding: 0.4em 0.3em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.movies th { border-left: 1px solid #ddd; border-right: 1px solid #888; padding: 0.4em 0 0.3em 0.7em; }    
+.movies th:nth-child(1), .movies td:nth-child(1) { width: 20%; }
+.movies th:nth-child(2), .movies td:nth-child(2) { width: 15%; }
+.movies th:nth-child(3), .movies td:nth-child(3) { width: 45%; }
+.movies th:nth-child(4), .movies td:nth-child(4) { width: 15%; }
+.movies th:last-child { border-right: none }
+.movies tr:nth-child(even) { background-color: #EEE; }
+
+.viewMovie .movieInfo { background-color: #dae0e8; padding: 1em 1em 0.5em 1.25em; border-radius: 1em; }
+.viewMovie .movieInfo h1 { margin-top: 0.2em; font-size: 130%; }
+.viewMovie .movieInfo label { color: #777; font-weight: bold; min-width: 2.75em; text-align:right; display: inline-block; }
+.viewMovie .message { padding: 0 1.25em; }
